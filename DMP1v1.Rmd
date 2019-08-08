@@ -1,6 +1,6 @@
 ---
 author: "Sanjin Muftic"
-date: '2019-08-08'
+date: "`r format(Sys.Date(), '%A, %B %d, %Y')`"
 output: 
     html_document: 
       toc: TRUE
@@ -8,15 +8,31 @@ output:
       number_sections: TRUE
       theme: united
       highlight: kate
-      
+      code_folding: hide
 title: DMP Version 1
+
 bibliography: references.bib
+csl: harvard-imperial-college-london.csl
 ---
 
 # Data Management Plan: Rio Grande Basin Hydrologic Geodatabase Compendium. {-}
 
 # Background {-}
 ![Figure 1. Area Map](img/rio-grande-basin.png){ width=50%}
+
+```{r table}
+usgs <- read.csv("data/usgs.csv")
+usgs_onlytoprown <- dplyr::select(usgs,1:4)
+head(usgs_onlytoprown, 3)
+```
+
+This dataset has `r nrow(usgs)` samples.
+
+```{r plot }
+plot(faithful, main = "Do I wait longer for longer eruptions?")
+```
+
+
 
 # Types of Data Produced
 
@@ -109,6 +125,11 @@ addition to archiving, each database table will be exported to a
 delimited text format to ensure accessibility of the data by other
 software programs. The data manager at the NMISC will be responsible for
 the management of long-term storage and archived data.
+
+
+# Distribution Rights
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Knitting with R</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/sanjinmuftic/markdown-pandoc-sanjin" property="cc:attributionName" rel="cc:attributionURL">Sanjin Muftic</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/AuthorCarpentry/markdown-pandoc-student.git" rel="dct:source">https://github.com/AuthorCarpentry/markdown-pandoc-student.git</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://sanjinmuftic.com" rel="cc:morePermissions">sanjinmuftic.com</a>.
 
 # References {-}
 
